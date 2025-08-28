@@ -6,6 +6,8 @@ Além disso, o projeto consome a **API do TMDB** para listar filmes, séries e a
 
 ---
 
+## Deploy na Vercel - https://seeflix.vercel.app/
+
 ## 📌 Tecnologias usadas
 
 ### **Front-end**
