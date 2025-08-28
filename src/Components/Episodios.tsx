@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
+import Image from "next/image";
 
 interface Temporada {
   id: number;
@@ -88,7 +89,7 @@ export default function Episodios() {
             <li key={episodio.id} className="mb-2 bg-gray-800 p-4 rounded-lg">
               <div className="flex max-sm:flex-col max-sm:items-center ">
                 {episodio.still_path ? (
-                <img
+                <Image
                   src={`https://image.tmdb.org/t/p/w500${episodio.still_path}`}
                   alt={episodio.name}
                   width={250}

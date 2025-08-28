@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowDownToLine } from "lucide-react";
+import Image from "next/image";
 
 interface Series {
   id: number;
@@ -10,7 +11,7 @@ interface Series {
   vote_average: number;
 }
 
-export default function pageSeries() {
+export default function PageSeries() {
   const [series, setSeries] = useState<Series[]>([]);
   const [page, setPage] = useState(1);
 
@@ -45,9 +46,11 @@ export default function pageSeries() {
           <Link key={serie.id} href={`/tv/${serie.id}`}>
             <div className="bg-gray-800 rounded-lg shadow-md hover:scale-105 transition-transform duration-300 relative overflow-hidden">
               <div className="w-full h-[400px] max-sm:h-[300px] overflow-hidden">
-            <img
+            <Image
               src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
               alt={serie.name}
+              width={400}
+              height={200}
               className="w-full h-full object-cover rounded-t-lg"
             />
           </div>

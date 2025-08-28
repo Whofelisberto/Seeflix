@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface Movie {
   id: number;
@@ -39,9 +40,11 @@ export default function CardContent() {
           <Link key={movie.id} href={`/movie/${movie.id}`}>
             <div className="bg-gray-800 rounded-lg shadow-md hover:scale-105 transition-transform duration-300 relative overflow-hidden">
              
-              <img
+              <Image
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
+                width={400}
+                height={200}
                 className="w-full h-auto rounded-t-lg object-cover"
               />
 

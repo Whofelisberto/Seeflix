@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface Series {
   id: number;
@@ -40,9 +41,11 @@ const [series, setSeries] = useState<Series[]>([]);
         {series.slice(0,10).map((series) => (
           <Link key={series.id} href={`/tv/${series.id}`}>
           <div className="bg-gray-800 rounded-lg shadow-md hover:scale-105 transition-transform duration-300 relative overflow-hidden">
-            <img
+            <Image
               src={`https://image.tmdb.org/t/p/w500${series.poster_path}`}
               alt={series.name}
+              width={400}
+              height={200}
               className="w-full h-auto rounded-t-lg object-cover"
             />
             <div className="absolute top-2 left-2 bg-black/80 text-green-400 text-sm font-semibold px-2 py-1 rounded-l-full border border-green-400">{series.vote_average.toFixed(1)}</div>

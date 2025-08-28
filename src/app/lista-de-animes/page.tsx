@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowDownToLine } from "lucide-react";
+import Image from "next/image";
 
 interface Animes {
   id: number;
@@ -10,7 +11,7 @@ interface Animes {
   vote_average: number;
 }
 
-export default function pageSeries() {
+export default function PageAnimes() {
   const [animes, setAnimes] = useState<Animes[]>([]);
   const [page, setPage] = useState(1);
 
@@ -46,19 +47,21 @@ export default function pageSeries() {
         <div className="bg-gray-800 rounded-lg shadow-md hover:scale-105 transition-transform duration-300 relative overflow-hidden">
           
           <div className="w-full h-[400px] max-sm:h-[300px] overflow-hidden">
-            <img
+            <Image
               src={`https://image.tmdb.org/t/p/w500${anime.poster_path}`}
               alt={anime.name}
+              width={400}
+              height={200}
               className="w-full h-full object-cover rounded-t-lg"
             />
           </div>
 
-          {/* Nota */}
+          
           <div className="absolute top-2 left-2 bg-black/80 text-green-400 text-sm font-semibold px-2 py-1 rounded-l-full border border-green-400">
             {anime.vote_average.toFixed(1)}
           </div>
 
-          {/* Título */}
+         
           <div className="p-3">
             <h2 className="text-sm sm:text-base font-bold truncate text-white text-center">
               {anime.name}
@@ -69,10 +72,10 @@ export default function pageSeries() {
     ))}
   </div>
 
-  {/* Botão de Exibir mais */}
+ 
   <div className="flex justify-center mt-6">
     <button
-      type="button" // 👈 evita refresh
+      type="button" 
       onClick={() => setPage((prevPage) => prevPage + 1)}
       className="bg-green-500 text-white px-3 py-2 rounded hover:bg-green-600 transition font-semibold"
     >

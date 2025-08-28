@@ -1,6 +1,7 @@
 'use client';
-import React, { useState , useEffect } from 'react'
+import React, { use , useState , useEffect } from 'react'
 import Episodios from '@/Components/Episodios';
+import Image from 'next/image';
 
 interface Genre {
   id: number;
@@ -23,8 +24,8 @@ interface Series {
   popularity: number;
 }
 
-export default function pageSeries( { params }: { params: Promise<{ id: string }> }) {
-  const { id } = React.use(params);
+export default function PageSeries({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
   const apiKey = process.env.NEXT_PUBLIC_TMDB_API_KEY;
   const url = `https://api.themoviedb.org/3/tv/${id}?api_key=${apiKey}&language=pt-BR&page=1`;
 
@@ -58,9 +59,11 @@ export default function pageSeries( { params }: { params: Promise<{ id: string }
           <div className="absolute inset-0 bg-gray bg-gray-500 opacity-50 rounded-lg"></div>
 
          <div className="relative z-10 flex flex-col md:flex-row items-start">
-        <img
+        <Image
           src={`https://image.tmdb.org/t/p/w500${series.poster_path}`}
           alt={series.name}
+          width={400}
+          height={200}
           className="w-80 h-auto rounded-lg mr-6 shadow-lg"
         />
 

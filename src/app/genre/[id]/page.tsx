@@ -2,6 +2,7 @@
 import React, { useState, useEffect, use } from 'react'
 import Link from 'next/link'
 import { ArrowDownToLine } from 'lucide-react'
+import Image from 'next/image'
 
 interface Movie {
   id: number;
@@ -81,9 +82,10 @@ export default function PageGeneros({ params }: { params: Promise<{ id: string }
             <Link key={movie.id} href={`/movie/${movie.id}`}>
               <div className="bg-gray-800 rounded-lg shadow-md hover:scale-105 transition-transform duration-300 relative overflow-hidden">
                 <div className="w-full h-[400px] max-sm:h-[300px] overflow-hidden">
-            <img
+            <Image
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt={movie.title}
+              width={400}
               className="w-full h-full object-cover rounded-t-lg"
             />
           </div>

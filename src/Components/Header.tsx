@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { Home, Film, LogIn, Tv, TvMinimalPlay, Menu, X , Search } from "lucide-react";
 import { useState, useEffect, use } from "react";
+import Image from "next/image";
 
  interface Movie {
   id: number;
@@ -78,7 +79,7 @@ const getLink = (item: SearchResult) => {
               className="block p-2"
             >
               <div className="flex space-x-2 hover:bg-gray-500 rounded p-2">
-              <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.title || item.name}
+              <Image src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.title || item.name}
               width={120}
               height={20}
               className="bg-cover rounded-lg" 

@@ -1,6 +1,7 @@
 'use client';
 import React, { useEffect, useState } from "react";
 import Watch from "@/Components/Watch";
+import Image from "next/image";
 
 interface Genre {
   id: number;
@@ -58,9 +59,11 @@ export default function PageFilmes({ params }: { params: Promise<{ id: string }>
 
       {/* conteúdo por cima do fundo */}
       <div className="relative z-10 flex flex-col md:flex-row items-start">
-        <img
+        <Image
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
           alt={movie.title}
+          width={400}
+          height={200}
           className="w-80 h-auto rounded-lg mr-6 shadow-lg"
         />
 
