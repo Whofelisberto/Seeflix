@@ -2,6 +2,7 @@
 
 Projeto fullstack desenvolvido com **Next.js**, **React**, **TypeScript** e **Tailwind CSS** no front-end.  
 No back-end, utiliza as **API Routes do Next.js** para login e registro de usuários, salvando dados em **MySQL** e garantindo segurança com **JWT** + **bcrypt** para criptografia de senhas.  
+Além disso, o projeto consome a **API do TMDB** para listar filmes, séries e animes.  
 
 ---
 
@@ -19,6 +20,9 @@ No back-end, utiliza as **API Routes do Next.js** para login e registro de usuá
 - [JWT](https://jwt.io/) para autenticação
 - [bcrypt](https://github.com/kelektiv/node.bcrypt.js) para criptografia de senhas
 
+### **API Externa**
+- [TMDB](https://www.themoviedb.org/) para buscar filmes, séries e animes
+
 ---
 
 ## ⚙️ Funcionalidades
@@ -26,9 +30,10 @@ No back-end, utiliza as **API Routes do Next.js** para login e registro de usuá
 ✅ Registro de usuário com senha criptografada  
 ✅ Login com JWT + persistência de sessão  
 ✅ Integração com MySQL  
+✅ Consumo da API do TMDB  
 ✅ Listagem de filmes, séries e animes  
-✅ Interface responsiva com Tailwind  
 ✅ Rotas dinâmicas para detalhes de mídia (`/movie/[id]`, `/tv/[id]`)  
+✅ Interface responsiva com Tailwind  
 
 ---
 
@@ -72,3 +77,49 @@ A estrutura atual do projeto está assim:
  ┣ next.config.ts
  ┣ package.json
  ┗ README.md
+```
+## Instale as Dependências
+
+npm install
+## ou
+yarn install
+
+## Crie um banco no MySQL:
+```bash
+CREATE DATABASE seeflix;
+```
+
+## Crie uma tabela users:
+```bash
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+
+## Crie o arquivo .env.local na raiz do projeto:
+
+### Configuração do MySQL
+```bash
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=123456
+DB_NAME=seeflix
+```
+## TMDB API
+```bash
+NEXT_PUBLIC_TMDB_API_KEY=
+```
+
+## JWT
+```bash
+JWT_SECRET=seusegredoaqui
+```
+
+## Rode em modo desenvolvimento
+
+npm run dev
