@@ -87,6 +87,11 @@ npm install
 ## ou
 yarn install
 
+## clone o repositório:
+```bash
+git clone https://github.com/Whofelisberto/Seeflix.git
+```
+
 ## Crie um banco no MySQL:
 ```bash
 CREATE DATABASE seeflix;
